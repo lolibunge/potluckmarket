@@ -1,0 +1,121 @@
+{% schema %}
+{
+  "name": "FAQs",
+  "class": "section-faqs faqs",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_background",
+      "label": "Section Background",
+      "options": [
+        {
+          "value": "blue",
+          "label": "Blue"
+        },
+        {
+          "value": "brown",
+          "label": "Brown"
+        },
+        {
+          "value": "gray",
+          "label": "Gray"
+        },
+        {
+          "value": "green",
+          "label": "Green"
+        },
+        {
+          "value": "orange",
+          "label": "Orange"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "pink",
+          "label": "Pink"
+        },
+        {
+          "value": "purple",
+          "label": "Purple"
+        },
+        {
+          "value": "red",
+          "label": "Red"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "yellow",
+          "label": "Yellow"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "big_title",
+      "label": "Big Title"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs"
+    }
+  ]
+}
+{% endschema %}
+<div class="py-10 faqs bg-{{ section.settings.section_background }} pattern pattern-{{  section.settings.section_background }}">
+  {% if section.settings.big_title %}
+    <div class="mb-10 text-center site-container-fluid">
+      <h2 class="section-title type--xl">{{ section.settings.big_title }}</h2>
+    </div>
+  {% endif %}
+  <div class="py-5 site-container">
+    <div class="grid grid-cols-12">
+      <div class="col-span-12 lg:col-span-6">
+        <div class="faq-sidebar">
+          <h3 class="uppercase faq-sidebar-title type--h1">{{ section.settings.label }}</h3>
+        </div>
+      </div>
+      <div class="col-span-12 lg:col-span-6">
+        <div class="faqs">
+          {% for block in section.blocks %}
+            <div class="question mb-[50px]">
+              <div class="mb-5 uppercase type--h2">{{ block.settings.question }}</div>
+              <div class="type--h2 rte">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

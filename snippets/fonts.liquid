@@ -1,0 +1,89 @@
+{% style %}
+  @font-face {
+    font-family: "ABCOracle";
+    font-style: normal;
+    font-weight: 400;
+
+    font-display: fallback;
+    src: url('{{ 'ABCOracle-Regular.woff2' | asset_url }}') format('woff2'), url('{{ 'ABCOracle-Regular.woff' | asset_url
+    }}') format('woff');
+  }
+
+  @font-face {
+    font-family: "ABCOracle";
+    font-style: italic;
+    font-weight: 400;
+
+    font-display: fallback;
+    src: url('{{ 'ABCOracle-RegularItalic.woff2' | asset_url }}') format('woff2'), url('{{ 'ABCOracle-RegularItalic.woff' |
+      asset_url }}') format('woff');
+    }
+
+    @font-face {
+      font-family: "ABCOracle";
+      font-style: normal;
+      font-weight: 700;
+
+      font-display: fallback;
+      src: url('{{ 'ABCOracle-Bold.woff2' | asset_url }}') format('woff2'), url('{{ 'ABCOracle-Bold.woff' | asset_url }}')
+      format('woff');
+    }
+
+    /* .pattern-black {
+      background-image: url('{{ 'pattern-black.png' | asset_url }}');
+    }
+    .pattern-blue {
+      background-image: url('{{ 'pattern-black.png' | asset_url }}');
+    }
+    .pattern-brown {
+      background-image: url('{{ 'pattern-brown.png' | asset_url }}');
+    }
+    .pattern-gray {
+      background-image: url('{{ 'pattern-gray.png' | asset_url }}');
+    }
+    .pattern-green {
+      background-image: url('{{ 'pattern-green.png' | asset_url }}');
+    }
+    .pattern-orange {
+      background-image: url('{{ 'pattern-orange.png' | asset_url }}');
+    }
+    .pattern-peach {
+      background-image: url('{{ 'pattern-peach.png' | asset_url }}');
+    }
+    .pattern-pink {
+      background-image: url('{{ 'pattern-pink.png' | asset_url }}');
+    }
+    .pattern-purple {
+      background-image: url('{{ 'pattern-purple.png' | asset_url }}');
+    }
+    .pattern-red {
+      background-image: url('{{ 'pattern-red.png' | asset_url }}');
+    }
+    .pattern-white {
+      background-image: url('{{ 'pattern-white.png' | asset_url }}');
+    }
+    .pattern-yellow {
+      position: relative
+      background-image: url('{{ 'pattern-yellow.png' | asset_url }}');
+    }
+    */
+    /* .pattern {
+      position: relative;
+    }
+    .pattern:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('{{ 'texture-test.png' | asset_url }}');
+      background-repeat: repeat;
+      z-index: 1;
+      mix-blend-mode: soft-light;
+    }
+    .pattern div {
+      position: relative;
+      z-index: 2;
+    } */
+{% endstyle %}

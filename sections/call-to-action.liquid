@@ -1,0 +1,43 @@
+{% schema %}
+{
+  "name": "Call To Action",
+  "class": "section-call-to-action call-to-action",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Call To Action"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="p-6 md:p-12 cta pattern-orange-splat bg-orange">
+  <a
+    class=" w-full text-center button bg-yellow pattern-yellow flex items-center justify-center rounded-full aspect-[1440/340]"
+    href="{{ section.settings.link }}"
+  >
+    <span class="text-center uppercase label type--h1">{{ section.settings.label }}</span>
+  </a>
+</section>
+{% style %}
+  section.cta.pattern-orange-splat {
+    background-image: url({{'orange-splat.png'|asset_url}});
+  }
+  @media (max-width: 767px) {
+    section.cta .type--h1 {
+      font-size: 24px;
+    }
+  }
+{% endstyle %}

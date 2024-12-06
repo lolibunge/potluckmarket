@@ -1,0 +1,26 @@
+{% schema %}
+{
+  "name": "Main Article Section",
+  "class": "section-main-carticle",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}
+
+<div class="px-6 md:px-8">
+  <div class="max-w-[1440px] mx-auto grid grid-cols-12">
+    <div class="col-span-12 md:col-span-8 md:col-start-3">
+      <div class="rte py-[100px] uppercase text-center">
+        <h1>{{ article.title }}</h1>
+      </div>
+    </div>
+    <div class="col-span-4 col-start-5 mb-[100px]">
+      {%- render '_block--image', image_asset: article.image, image_loading: 'eager' -%}
+    </div>
+    <div class="col-span-12 md:col-span-8 md:col-start-3">
+      <div class="rte font-sans text-[18px] md:text-[22px] leading-[120%] mb-[50px] md:mb-[100px]">
+        {{ article.content }}
+      </div>
+    </div>
+  </div>
+</div>

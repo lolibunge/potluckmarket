@@ -1,0 +1,70 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-index",
+      "settings": {}
+    },
+    "hero_Jbzx7e": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/20240108-potluck-0672_1.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/0D36CFBA-84F1-46F6-B4CF-32B0ABE73137_1_201_a.jpg",
+        "text": "",
+        "cta_label": "SHOP KOREAN PANTRY STAPLES",
+        "link": "shopify:\/\/products\/combo"
+      }
+    },
+    "product_grid_yPptpP": {
+      "type": "product-grid",
+      "settings": {
+        "product_list": [
+          "gochujang",
+          "ssamjang"
+        ]
+      }
+    },
+    "hero_qMzKCJ": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/20240108-potluck-1203_edited_2.jpg",
+        "text": "SPICY, SWEET, FUNKY,  AND DEEPLY SAVORY",
+        "cta_label": "",
+        "link": ""
+      }
+    },
+    "text_and_media_phrbyR": {
+      "type": "text-and-media",
+      "settings": {
+        "section_background": "purple",
+        "media_placement": "media_left_text_right",
+        "image": "shopify:\/\/shop_images\/image_2.jpg",
+        "text": "<p>We’re reimagining the classics and partnering with a network of skilled makers to do it. Potluck is bold flavors and no fillers—grounded in tradition but not bound by its rules. We’re meant for big nights, dinners-for-one, potlucks and pick-me-ups.<br\/><\/p><p><a href=\"\/pages\/about\" title=\"About\">LEARN MORE<\/a><\/p>"
+      }
+    },
+    "call_to_action_Ledqn6": {
+      "type": "call-to-action",
+      "settings": {
+        "label": "Shop All-Natural Korean Pantry Staples",
+        "link": "shopify:\/\/products\/combo"
+      }
+    },
+    "text_and_media_igtH8Q": {
+      "type": "text-and-media",
+      "settings": {
+        "section_background": "black",
+        "media_placement": "media_left_text_right",
+        "image": "shopify:\/\/shop_images\/POTLUCK_Illustration.webp",
+        "text": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_Jbzx7e",
+    "product_grid_yPptpP",
+    "hero_qMzKCJ",
+    "text_and_media_phrbyR",
+    "call_to_action_Ledqn6",
+    "text_and_media_igtH8Q"
+  ]
+}

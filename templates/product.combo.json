@@ -1,0 +1,97 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "picker_type": "radio"
+      }
+    },
+    "text_and_media_YYDCBd": {
+      "type": "text-and-media",
+      "settings": {
+        "section_background": "black",
+        "media_placement": "overlay",
+        "image": "shopify:\/\/shop_images\/history.jpg",
+        "text": "<p>HISTORY<\/p><p>Our products are made in small batches in Korea using traditional methods (think: cotton cloths, ceramic pots, and iron cauldrons). Fermentation, like all good things, takes time. <\/p>"
+      }
+    },
+    "text_and_media_dUUdp7": {
+      "type": "text-and-media",
+      "settings": {
+        "section_background": "yellow",
+        "media_placement": "media_left_text_right",
+        "image": "shopify:\/\/shop_images\/text-and-media-1.jpg",
+        "text": "<p>JANG 101<br\/><\/p><p>A jang 장 (gochu-jang, ssam-jang) is a sauce or paste made from fermented soybeans. Gochujang and ssamjang in particular define spiciness in Korean cuisine.<\/p>"
+      }
+    },
+    "text_and_media_ttC7AX": {
+      "type": "text-and-media",
+      "settings": {
+        "section_background": "pink",
+        "media_placement": "media_right_text_left",
+        "image": "shopify:\/\/shop_images\/text-and-media-2.jpg",
+        "text": "<p>HOW TO USE<\/p><p>There’s no wrong way to use a jang. Add to anything that could use a punch of flavor, either straight from the jar or while cooking. Try either in rice bowls, add gochujang to bolognese or chicken wings, dip a cucumber in ssamjang – find what works for you.<\/p>"
+      }
+    },
+    "text_and_media_Wp9gPT": {
+      "type": "text-and-media",
+      "settings": {
+        "section_background": "green",
+        "media_placement": "media_left_text_right",
+        "image": "shopify:\/\/shop_images\/text-and-media-3.jpg",
+        "text": "<p>WHY WE MADE THEM<\/p><p>The traditional way of making jangs at home has tapered off since the growth of mass market commercial production in the 1970s. While we’ve benefitted from the easy access and expansion of such businesses, we’re also losing the art and magic of natural Korean ingredients. Potluck is an invitation to learn about and try the highest quality jangs, made the way they were supposed to be. \u2028<\/p>"
+      }
+    },
+    "1722440447148a6391": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_FAhFtN": {
+          "type": "shopify:\/\/apps\/okendo\/blocks\/reviews-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_FAhFtN"
+      ],
+      "settings": {}
+    },
+    "1708974775c62d25a6": {
+      "type": "apps",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_review_dC8YEN": {
+          "type": "shopify:\/\/apps\/junip-product-reviews-ugc\/blocks\/junip-product-review\/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_review_dC8YEN"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "product_grid_UjUtXQ": {
+      "type": "product-grid",
+      "settings": {
+        "product_list": [
+          "gochujang",
+          "ssamjang"
+        ]
+      }
+    }
+  },
+  "order": [
+    "main",
+    "text_and_media_YYDCBd",
+    "text_and_media_dUUdp7",
+    "text_and_media_ttC7AX",
+    "text_and_media_Wp9gPT",
+    "1722440447148a6391",
+    "1708974775c62d25a6",
+    "product_grid_UjUtXQ"
+  ]
+}

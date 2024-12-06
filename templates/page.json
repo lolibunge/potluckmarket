@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "faqs_DtNQnd": {
+      "type": "faqs",
+      "blocks": {
+        "faq_f8bnCB": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I need to refrigerate?",
+            "answer": "<p>Both our gochujang and ssamjang require refrigeration after opening. To extend shelf life, we also recommend storing your unopened gochujang and ssamjang in a cool, dry place.<\/p>"
+          }
+        },
+        "faq_dtFW3c": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the shelf life?",
+            "answer": "<p>Products will include a best by date on the bottom of the jars. Because our products are fermented, they will typically be good to use for 1-2 years after opening.<\/p>"
+          }
+        },
+        "faq_WAniP6": {
+          "type": "faq",
+          "settings": {
+            "question": "Are your products gluten-free, vegan, or organic?",
+            "answer": "<p>Our products are vegan and made from natural ingredients. Organic certification is an expensive undertaking that we have not undergone as a small business, and the small amount of malt that allows us to not add additional sugar unfortunately renders our products not gluten-free.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_f8bnCB",
+        "faq_dtFW3c",
+        "faq_WAniP6"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_background": "gray",
+        "big_title": "FAQS",
+        "label": "PRODUCTS"
+      }
+    },
+    "faqs_bUe3ed": {
+      "type": "faqs",
+      "blocks": {
+        "faq_JXexCV": {
+          "type": "faq",
+          "settings": {
+            "question": "Faq 1",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dui placerat, aliquet nunc vitae, maximus elit. Ut ornare odio vehicula, commodo sem vel, euismod eros.<\/p>"
+          }
+        },
+        "faq_NUJEAk": {
+          "type": "faq",
+          "settings": {
+            "question": "Faq 2",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dui placerat, aliquet nunc vitae, maximus elit. Ut ornare odio vehicula, commodo sem vel, euismod eros.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_JXexCV",
+        "faq_NUJEAk"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_background": "green",
+        "big_title": "",
+        "label": "TOPIC"
+      }
+    },
+    "faqs_qrpNjA": {
+      "type": "faqs",
+      "blocks": {
+        "faq_VgRCHw": {
+          "type": "faq",
+          "settings": {
+            "question": "FAQ 1",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dui placerat, aliquet nunc vitae, maximus elit. Ut ornare odio vehicula, commodo sem vel, euismod eros.<\/p>"
+          }
+        },
+        "faq_UMLtWn": {
+          "type": "faq",
+          "settings": {
+            "question": "FAQ 2",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dui placerat, aliquet nunc vitae, maximus elit. Ut ornare odio vehicula, commodo sem vel, euismod eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dui placerat, aliquet nunc vitae, maximus elit. Ut ornare odio vehicula, commodo sem vel, euismod eros.<\/p>"
+          }
+        },
+        "faq_9NkQj8": {
+          "type": "faq",
+          "settings": {
+            "question": "FAQ 3",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dui placerat, aliquet nunc vitae, maximus elit. Ut ornare odio vehicula, commodo sem vel, euismod eros.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_VgRCHw",
+        "faq_UMLtWn",
+        "faq_9NkQj8"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_background": "pink",
+        "big_title": "",
+        "label": "TOPIC"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faqs_DtNQnd",
+    "faqs_bUe3ed",
+    "faqs_qrpNjA"
+  ]
+}

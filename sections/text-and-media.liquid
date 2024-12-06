@@ -1,0 +1,136 @@
+{% schema %}
+{
+  "name": "Text & Media",
+  "class": "section-text-and-media text-and-media",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_background",
+      "label": "Section Background",
+      "options": [
+        {
+          "value": "blue",
+          "label": "Blue"
+        },
+        {
+          "value": "brown",
+          "label": "Brown"
+        },
+        {
+          "value": "gray",
+          "label": "Gray"
+        },
+        {
+          "value": "green",
+          "label": "Green"
+        },
+        {
+          "value": "orange",
+          "label": "Orange"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "pink",
+          "label": "Pink"
+        },
+        {
+          "value": "purple",
+          "label": "Purple"
+        },
+        {
+          "value": "red",
+          "label": "Red"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "yellow",
+          "label": "Yellow"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "media_placement",
+      "label": "Media Placement",
+      "options": [
+        {
+          "value": "media_left_text_right",
+          "label": "Media Left, Text Right"
+        },
+        {
+          "value": "media_right_text_left",
+          "label": "Media RIght, Text Left"
+        },
+        {
+          "value": "overlay",
+          "label": "Overlay"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text & Media"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="text-and-media">
+  {% if section.settings.media_placement == 'overlay' %}
+    <div class="relative">
+      <div class="p-10 text [text-wrap:pretty] w-[80%] md:w-full max-w-[500px] mx-auto absolute top-0 left-0 z-[11]">
+        <div class="text-left type--h2 rte">
+          {{ section.settings.text }}
+        </div>
+      </div>
+      <div class="relative z-10 image h-[400px] md:h-auto opacity-80 md:opacity-100">
+        {%- render '_block--image', image_asset: section.settings.image, image_loading: 'lazy', image_class: 'cover' -%}
+      </div>
+    </div>
+  {% else %}
+    {% if section.settings.text != '' %}
+      <div class="grid grid-cols-2">
+        <div class="col-span-2 overflow-hidden md:col-span-1{% if section.settings.media_placement == 'media_right_text_left' %} md:order-last{% endif %}">
+          <div class="h-full aspect-video">
+            {%- render '_block--image',
+              image_asset: section.settings.image,
+              image_loading: 'lazy',
+              image_class: 'cover'
+            -%}
+          </div>
+        </div>
+        <div class="col-span-2 md:col-span-1  bg-{{ section.settings.section_background }} pattern pattern-{{  section.settings.section_background }}">
+          <div class="flex items-center h-full">
+            <div class="p-10 text [text-wrap:pretty] max-w-[600px] mx-auto">
+              <div class="text-center type--h2 rte">
+                {{ section.settings.text }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="image">
+        {%- render '_block--image', image_asset: section.settings.image, image_loading: 'lazy', image_class: 'cover' -%}
+      </div>
+    {% endif %}
+  {% endif %}
+</section>

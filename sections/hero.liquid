@@ -1,0 +1,85 @@
+{% schema %}
+{
+  "name": "Hero",
+  "class": "section-hero hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Label"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "CTA Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="relative hero  min-h-[600px] overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-full background">
+    {%- assign hero_image = section.settings.image -%}
+    {%- assign hero_image_mobile = section.settings.image -%}
+
+    {%- if section.settings.image_mobile -%}
+      {%- assign hero_image_mobile = section.settings.image_mobile -%}
+    {%- endif -%}
+    {%- render '_block--image',
+      image_asset: hero_image,
+      image_loading: 'eager',
+      image_class: 'cover hidden lg:block'
+    -%}
+    {%- render '_block--image',
+      image_asset: hero_image_mobile,
+      image_loading: 'eager',
+      image_class: 'cover block lg:hidden'
+    -%}
+  </div>
+  {% if section.settings.text != '' %}
+    <div class="relative top-0 left-0 flex pt-[4vw] mb-[250px] w-full h-full text">
+      <div class="container">
+        <div class="content">
+          <p class="title text-yellow text-center text-[10vw] leading-none [text-wrap:pretty]">
+            {{ section.settings.text }}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if section.settings.cta_label != '' %}
+    <div class="absolute bottom-0 left-0 flex w-full pb-4 lg:left-4 cta">
+      <div class="site-container-fluid">
+        <div class="grid grid-cols-2">
+          <div class="col-span-2 lg:col-span-1 lg:col-start-2">
+            <a href="{{ section.settings.link }}" class="button pattern bg-pink pattern-pink">
+              <span>{{ section.settings.cta_label }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <style></style>
+</section>

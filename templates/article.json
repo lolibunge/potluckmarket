@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "custom_css": [
+        "{background-color: #64ad00;}"
+      ],
+      "settings": {}
+    },
+    "product_grid_YBKAK6": {
+      "type": "product-grid",
+      "settings": {
+        "product_list": [
+          "gochujang",
+          "ssamjang"
+        ]
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_grid_YBKAK6"
+  ]
+}

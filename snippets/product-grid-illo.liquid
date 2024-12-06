@@ -1,0 +1,74 @@
+<div class="relative h-full product-listing-block group">
+  <a href="{{ product.url }}" class="screen-link"
+    ><span class="sr-only">View {{ product.title }}</span></a
+  >
+  {% if product.handle == 'gochujang' %}
+    <div class="h-full p-5 pt-[90px] bg-orange pattern pattern-orange">
+      <div class="flex flex-col card-content">
+        <div class="w-[60%] h-full mx-auto flex justify-center items-end">
+          <div class="image aspect-[368/514] max-w-[368px] w-full  group-hover:rotate-[-9deg] transition-all relative">
+            <div class="media contain">
+              <img
+                src="{{ "POTLUCK_Gochujang_Product.webp" | asset_url }}"
+                alt="{{ product.title }} - {{ product.price | money }}"
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 content">
+          <button class="flex flex-col w-full overflow-hidden bg-yellow group-hover:bg-black group-hover:text-yellow button product-button pattern pattern-yellow">
+            <span class="type--h2">{{ product.title }} - {{ product.price | money }}</span>
+            <span class="type listing-description">{{ product.metafields.potluck.listing_description }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  {% elsif product.handle == 'ssamjang' %}
+    <div class="h-full p-5 pt-[90px] bg-brown pattern pattern-brown">
+      <div class="flex flex-col card-content">
+        <div class="w-[60%] h-full mx-auto flex justify-center items-end">
+          <div class="image aspect-[368/514] max-w-[368px] w-full  group-hover:rotate-[-9deg] transition-all relative">
+            <div class="media contain">
+              <img
+                src="{{ "POTLUCK_Ssamjang_Product.webp" | asset_url }}"
+                alt="{{ product.title }} - {{ product.price | money }}"
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 content">
+          <button class="flex flex-col w-full overflow-hidden bg-white group-hover:bg-black group-hover:text-yellow button product-button pattern pattern-white">
+            <span class="type--h2">{{ product.title }} - {{ product.price | money }}</span>
+            <span class="type listing-description">{{ product.metafields.potluck.listing_description }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  {% elsif product.handle == 'combo' %}
+    <div class="h-full p-5 bg-gray pattern pattern-gray pt-[90px] lg:pt-0">
+      <div class="flex flex-col h-full card-content">
+        <div class="w-[80%] h-full mx-auto flex justify-center items-end">
+          <div class="image max-w-[525px] w-full  group-hover:translate-y-[-25px] transition-all relative">
+            <div class="media contain">
+              <img
+                src="{{ "POTLUCK_Combo_Product.webp" | asset_url }}"
+                alt="{{ product.title }} - {{ product.price | money }}"
+              >
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 content">
+          <button class="flex flex-col w-full overflow-hidden bg-pink group-hover:bg-black group-hover:text-yellow button product-button pattern pattern-pink">
+            <span class="type--h2">BUNDLE & SAVE - {{ product.price | money }}</span>
+            <span class="type listing-description">{{ product.metafields.potluck.listing_description }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  {% elsif product.featured_image %}
+    <img
+      src="{{ product.featured_image | img_url: 'master' }}"
+      alt="{{ product.featured_image.alt }}"
+    >
+  {% endif %}
+</div>

@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "picker_type": "select"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

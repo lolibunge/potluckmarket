@@ -1,0 +1,60 @@
+{
+  "current": {
+    "show_promo_bar": true,
+    "promo_bar_content": "<p>FREE SHIPPING ON ORDERS OF 3 OR MORE!<\/p>",
+    "enable_predictive_search": false,
+    "enable_modal": false,
+    "checkout_logo_image": "shopify:\/\/shop_images\/72FCD706-BB68-4DD1-9CBD-51D3FB8D262E_4_5005_c.jpg",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "small",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_color": "#f5f5f5",
+    "checkout_accent_color": "#d57d00",
+    "checkout_button_color": "#d57d00",
+    "brand_color": "#242a5c",
+    "sections": {
+      "header": {
+        "type": "header",
+        "custom_css": [],
+        "settings": {}
+      },
+      "minicart": {
+        "type": "minicart",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "predictive-search-main": {
+        "type": "predictive-search-main",
+        "settings": {
+          "prompt_text": "What can we help you find?"
+        }
+      },
+      "modal": {
+        "type": "modal",
+        "settings": {}
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "733389323033596483": {
+        "type": "shopify:\/\/apps\/okendo\/blocks\/theme-settings\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "disabled": false,
+        "settings": {
+          "show_preview_data": true
+        }
+      },
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "platform_customizations": {
+    "custom_css": []
+  }
+}

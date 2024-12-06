@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_gxpeda": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/image_4.jpg",
+        "text": "ALL-NATURAL KOREAN STAPLES FOR EVERY PANTRY",
+        "cta_label": "",
+        "link": ""
+      }
+    },
+    "basic_text_DzULTj": {
+      "type": "basic-text",
+      "settings": {
+        "section_background": "green",
+        "section_title": "",
+        "text": "<p>Hi there,<br\/><\/p><p>I’m Jen, the founder of Potluck. Growing up eating Korean food everyday (one perk of being half Korean!) I never imagined that Korean culture would become as popular as it is today.<br\/><\/p><p>In middle school, I watched Korean beauty take off, amazed to see sheet masks in my local pharmacy. Years later, we have K-pop frequently reaching the top 100 and Korean dramas on American streaming platforms.<br\/><\/p><p>Still, my favorite Korean food staples only came shipped from Korea, handmade by my mom’s family. When I’d run out, I’d go to stores here and wonder why all Korean ingredients felt lackluster in comparison. I wanted staples that stood out, felt fun, were better for you, and tasted like home. <br\/><\/p><p>So we made Potluck, an all-natural Korean staples line inspired by the magic of gathering over a good meal. Whether you’re Korean like me, love Korean flavors, or have never tried Korean food before, consider this your invitation - to try something new, to taste something made with lots of love, and to make it your own.<br\/><\/p><p>Warmly,\u2028<br\/>Jen<\/p>",
+        "image": "shopify:\/\/shop_images\/Img.jpg"
+      }
+    },
+    "hero_beeKfK": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/207403DA-126D-486E-A41A-C440A3443D6A_1_201_a_50.jpg",
+        "text": "",
+        "cta_label": "",
+        "link": ""
+      }
+    },
+    "product_grid_VaJEYq": {
+      "type": "product-grid",
+      "settings": {
+        "product_list": [
+          "combo",
+          "ssamjang"
+        ]
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_gxpeda",
+    "basic_text_DzULTj",
+    "hero_beeKfK",
+    "product_grid_VaJEYq"
+  ]
+}

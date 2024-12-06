@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "collabs": {
+      "type": "apps",
+      "blocks": {
+        "a5aa3d10-edfe-4bd3-98dc-a881b8d67339": {
+          "type": "shopify:\/\/apps\/collabs\/blocks\/application-page\/54758706-9f25-4fa9-a553-64720a4c998b",
+          "settings": {
+            "heading": "Join Team Potluck",
+            "show_square_logo": true,
+            "show_partnership_info": true,
+            "button_text": "Apply now",
+            "number_of_images": "4",
+            "logo_position": "above",
+            "corner_style": "circle",
+            "button_background_color": "#000000",
+            "button_label_color": "#ffffff",
+            "link_color": "#2c6ecb"
+          }
+        }
+      },
+      "block_order": [
+        "a5aa3d10-edfe-4bd3-98dc-a881b8d67339"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "collabs"
+  ]
+}

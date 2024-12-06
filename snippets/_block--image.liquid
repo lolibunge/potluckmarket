@@ -1,0 +1,22 @@
+{%- if image_asset != blank -%}
+  {% unless image_class %}
+    {% assign image_class = '' %}
+  {% endunless %}
+
+  <div class="media {{ image_class }}">
+    {%- assign img_url = image_asset | img_url: '1728x' -%}
+    {% unless image_loading == 'eager' %}
+      {{
+        image_asset
+        | image_url: width: 2400
+        | image_tag: widths: '180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048', sizes: 'auto'
+      }}
+    {% else %}
+      {{
+        image_asset
+        | image_url: width: 2400
+        | image_tag: widths: '180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048', sizes: 'auto'
+      }}
+    {% endunless %}
+  </div>
+{%- endif -%}

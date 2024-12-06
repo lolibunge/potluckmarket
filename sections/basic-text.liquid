@@ -1,0 +1,121 @@
+{% schema %}
+{
+  "name": "Basic Text",
+  "class": "section-basic-text basic-text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_background",
+      "label": "Section Background",
+      "options": [
+        {
+          "value": "blue",
+          "label": "Blue"
+        },
+        {
+          "value": "brown",
+          "label": "Brown"
+        },
+        {
+          "value": "gray",
+          "label": "Gray"
+        },
+        {
+          "value": "green",
+          "label": "Green"
+        },
+        {
+          "value": "orange",
+          "label": "Orange"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "pink",
+          "label": "Pink"
+        },
+        {
+          "value": "purple",
+          "label": "Purple"
+        },
+        {
+          "value": "red",
+          "label": "Red"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "yellow",
+          "label": "Yellow"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Basic Text"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="py-10 basic-text bg-{{ section.settings.section_background }} pattern pattern-{{  section.settings.section_background }}">
+  {% if section.settings.section_title %}
+    <div class="mb-10 text-center site-container-fluid">
+      <h2 class="section-title type--h2">{{ section.settings.section_title }}</h2>
+    </div>
+  {% endif %}
+  <div class="py-5 site-container">
+    <div class="grid grid-cols-12">
+      <div class="col-span-12 md:col-span-6 md:col-start-4">
+        <div class="text-center rte type--h2">
+          {{ section.settings.text }}
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-12 my-12">
+      <div class="col-span-6 col-start-4 md:col-span-4 md:col-start-5">
+        <div class="h-full aspect-square max-w-[200px] mx-auto ">
+          {%- render '_block--image',
+            image_asset: section.settings.image,
+            image_loading: 'lazy',
+            image_class: 'cover'
+          -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% style %}
+    .basic-text {
+      .type--h2 {
+        line-height: 1.2;
+        text-wrap: pretty;
+        p {
+          margin-bottom: 1rem;
+          text-wrap: pretty;
+        }
+      }
+    }
+  {% endstyle %}
+</div>

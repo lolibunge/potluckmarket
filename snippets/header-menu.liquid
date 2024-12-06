@@ -1,0 +1,44 @@
+<ul class="header-menu">
+  {% for link in linklists['main-menu'].links %}
+    <li class="uppercase type type-black">
+      <a
+        href="{{ link.url }}"
+        {% if link.active %}
+          class="active"
+        {% endif %}
+      >
+        {{ link.title | escape }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+<style>
+  .header-menu {
+    display: flex;
+    align-items: center;
+  }
+  .header-menu button {
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    background: none;
+    border: none;
+  }
+  .header-menu a,
+  .header-menu button {
+    text-decoration: none;
+    margin-right: 100px;
+    cursor: pointer;
+    &:hover {
+      border-bottom: 1px solid;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .header-menu a,
+    .header-menu button {
+      margin-right: 20px;
+    }
+  }
+</style>

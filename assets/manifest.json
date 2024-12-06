@@ -1,0 +1,20 @@
+{
+  "frontend\/entrypoints\/theme.css": {
+    "file": "theme.45b3416a.min.css",
+    "isEntry": true,
+    "src": "frontend\/entrypoints\/theme.css"
+  },
+  "frontend\/entrypoints\/theme.js": {
+    "dynamicImports": [
+      "frontend\/js\/prodify.js"
+    ],
+    "file": "theme.5ea2ae51.min.js",
+    "isEntry": true,
+    "src": "frontend\/entrypoints\/theme.js"
+  },
+  "frontend\/js\/prodify.js": {
+    "file": "prodify.bbca58c6.min.js",
+    "isDynamicEntry": true,
+    "src": "frontend\/js\/prodify.js"
+  }
+}

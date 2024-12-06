@@ -1,0 +1,35 @@
+{% schema %}
+{
+  "name": "Main Collection Section",
+  "class": "section-main-collection",
+  "tag": "section"
+}
+{% endschema %}
+
+<section class="product-grid">
+  <div class="grid grid-cols-2">
+    {%- paginate collection.products by 12 -%}
+      {% for product in collection.products %}
+        <div class="col-span-2 lg:col-span-1">
+          {%- render 'product-grid-illo', product: product %}
+        </div>
+        {% if collection.products.size == 3 and forloop.last %}
+          <div class="hidden col-span-2 lg:col-span-1 lg:block">
+            <div class="relative h-full overflow-hidden">
+              <div class="absolute top-0 left-0 h-full">
+                <div class="h-full media">
+                  <img
+                    src="{{ "illo.jpg" | asset_url }}"
+                    alt="Illustration"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% render 'pagination-navigation', paginate: paginate %}
+    {% endpaginate %}
+  </div>
+  <style></style>
+</section>

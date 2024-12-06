@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "custom_css": [
+        "{background-color: #FB8AE7;}"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

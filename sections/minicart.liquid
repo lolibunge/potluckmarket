@@ -1,0 +1,396 @@
+<div
+  class="minicart"
+  data-ajax-cart-section
+  x-cloak
+>
+  <div class="pb-4 mb-4 border-b title-row">
+    <h2 id="minicart-label">
+      Cart -
+      <span
+        class="count"
+        x-data
+      >
+        {{- cart.item_count }}
+      </span>
+      <span x-data></span>
+    </h2>
+    <button @click="$store.global.isMinicartVisible = false">
+      {% render 'icon-close-x' %}
+    </button>
+  </div>
+
+  <ul class="items-list" data-ajax-cart-section-scroll>
+    {% for line_item in cart.items %}
+      <li class="w-full mb-4 item">
+        <div class="product-thumb-wrapper aspect-square">
+          <a href="{{ line_item.url }}">
+            <img
+              src="{{ line_item.image | image_url: width: 120, height: 120, crop: 'center' }}"
+              alt="{{ line_item.title }}"
+              srcset="{{ line_item.image | image_url: width: 120, height: 120, crop: 'center' }} 1x, {{ line_item.image | image_url: width: 200, height: 240, crop: 'center' }} 2x"
+              width="{{ line_item.image.width }}"
+              height="{{ line_item.image.height }}"
+              loading="lazy"
+            >
+          </a>
+        </div>
+        <div class="w-full item-details">
+          <div class="flex items-center justify-between w-full md:flex-row">
+            <h2 class="type--h2">
+              <a class="hover:no-underline" href="{{ line_item.url }}">{{ line_item.title | truncatewords: 5 }}</a>
+            </h2>
+            <ajax-cart-quantity>
+              <div class="quantity-row cart-quantity-input">
+                <label for="quantity-control-input" class="sr-only">Quantity</label>
+                <div class="rounded-full quantity-control-container bg-yellow">
+                  <button type="button" data-ajax-cart-quantity-minus>
+                    {% render 'icon-minus' %}
+                  </button>
+                  <input
+                    class="bg-transparent"
+                    tabindex="-1"
+                    type="number"
+                    id="quantity-control-input"
+                    value="{{ line_item.quantity }}"
+                    disabled=""
+                    data-ajax-cart-quantity-input="{{ forloop.index }}"
+                  >
+                  <button type="button" data-ajax-cart-quantity-plus>
+                    {% render 'icon-plus' %}
+                  </button>
+                </div>
+              </div>
+            </ajax-cart-quantity>
+          </div>
+          <div class="hidden options">
+            {% for option in line_item.options_with_values %}
+              <p class="option" data-option-name="{{ option.name }}">
+                <span style="font-weight: 600">{{ option.name }} : </span>
+                <span>{{ option.value }} </span>
+              </p>
+            {% endfor %}
+          </div>
+          <p class="price">{{ line_item.price | money }}</p>
+          <p class="remove">
+            <a class="underline" href="{{ line_item.url_to_remove }}" data-ajax-cart-request-button> Remove </a>
+          </p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="pt-4 mt-auto border-t subtotal EC-SideCart">
+    <p class="title">Subtotal</p>
+    <p class="amount">{{ cart.items_subtotal_price | money }}</p>
+  </div>
+  
+  <a class="button bg-yellow hover:no-underline" href="/checkout">Checkout</a>
+</div>
+
+<style>
+  /* Animation classes */
+
+  /* Chrome, Safari, Edge, Opera */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  input[type='number']:focus {
+    outline: 0;
+  }
+
+  .transition {
+    transition-property: all;
+  }
+
+  .duration-300 {
+    transition-duration: 300ms;
+  }
+
+  .ease-out {
+    transition-timing-function: ease-out;
+  }
+
+  .ease-in {
+    transition-timing-function: ease-in;
+  }
+
+  .off-screen-right {
+    right: -100px;
+    transform: translateX(120%);
+  }
+
+  .right-50 {
+    right: 50px;
+    transform: translateX(0%);
+  }
+
+  @media (max-width: 576px) {
+    .right-50 {
+      right: 20px;
+      transform: translateX(0%);
+    }
+  }
+
+  /* Main styles */
+  .minicart-wrapper {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 100;
+    width: 33%;
+    height: 100%;
+    background: white;
+    border-left: 1px solid #000;
+  }
+
+  .minicart-wrapper .shopify-section {
+    height: 100%;
+  }
+
+  @media (max-width: 576px) {
+    .minicart-wrapper {
+      width: 90%;
+    }
+  }
+
+  .minicart {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .minicart .view-cart-details-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    height: 43px;
+    font-weight: 600;
+    background: white;
+    border: 2px solid black;
+    outline: none;
+    text-decoration: none;
+  }
+
+  .minicart .view-cart-details-link:hover {
+    cursor: pointer;
+    color: white;
+    background: black;
+  }
+
+  .minicart hr {
+    margin-bottom: 20px;
+  }
+
+  .minicart .title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .minicart .title-row h2 {
+    margin: 0;
+  }
+
+  .minicart .title-row button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .minicart .title-row button svg {
+    display: block;
+    height: 16px;
+  }
+
+  .minicart .items-list {
+    list-style: none;
+    padding-left: 0;
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  .minicart .item-count-message {
+    margin-bottom: 10px;
+    font-size: 0.8em;
+  }
+
+  .minicart .item-count-message .minicart--item-count {
+    font-weight: 600;
+  }
+
+  .minicart .item {
+    display: flex;
+    width: 100%;
+  }
+
+  .minicart .item .product-thumb-wrapper {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    flex: 0 0 120px;
+  }
+  @media (max-width: 767px) {
+    .minicart .item .product-thumb-wrapper {
+      width: 80px;
+      height: 80px;
+      flex: 0 0 80px;
+    }
+  }
+
+  .minicart .item .product-thumb-wrapper img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .minicart .item .item-details {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .minicart .item .item-details p {
+    margin: 0;
+  }
+
+  .minicart .item .item-details .option-label {
+    font-weight: 600;
+  }
+
+  .minicart .item .item-details .title {
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
+
+  .minicart .item .item-details .options {
+    margin-bottom: 2px 0;
+  }
+
+  .minicart .item .item-details .option {
+    margin: 0 0 2px;
+    font-size: 0.8rem;
+  }
+
+  .minicart .item .item-details .quantity-row {
+    margin: 2px 0;
+  }
+
+  .minicart .item .item-details .quantity-row span {
+    margin: 0 0 2px;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 767px) {
+    .minicart .item .item-details .quantity-row span {
+      font-size: 0.6rem;
+    }
+  }
+
+  .minicart .item .item-details .option:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .minicart .item .item-details .price {
+    margin-top: auto;
+  }
+
+  .minicart .item .item-details .remove {
+    font-size: 0.6em;
+    margin-top: auto;
+  }
+
+  .minicart .subtotal {
+    border-top: 1px solid #000;
+    margin: auto 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .minicart a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .minicart a:hover {
+    text-decoration: none;
+  }
+
+  .minicart .cart-quantity-input label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 19.5px;
+    color: rgba(26, 27, 24, 0.75);
+    margin-bottom: 4px;
+  }
+
+  .minicart .cart-quantity-input .quantity-control-container {
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    font-size: 22px;
+  }
+
+  .minicart .cart-quantity-input .quantity-control-container button {
+    width: 45px;
+    height: 45px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 22px;
+  }
+  @media (max-width: 767px) {
+    .minicart .cart-quantity-input .quantity-control-container button {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .minicart .cart-quantity-input .quantity-control-container button svg {
+    width: 14px;
+  }
+
+  .minicart .cart-quantity-input .quantity-control-container input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    pointer-events: none;
+    width: 48px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .minicart .cart-quantity-input .quantity-control-container input[type='number']::-webkit-inner-spin-button,
+  .minicart .cart-quantity-input .quantity-control-container input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+</style>

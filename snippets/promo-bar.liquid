@@ -1,0 +1,83 @@
+<div
+  id="site-promo-bar-wrapper"
+  {% if settings.collapse_promo_bar %}
+    x-data
+    x-show="!$store.global.isWindowScrolled"
+    x-collapse
+  {% endif %}
+>
+  <div
+    id="site-promo-bar"
+    class="site-promo-bar-tw-component bg-orange"
+  >
+    <div class="w-full overflow-hidden text-beige announcement-bar bg-brown type" style="--text-width: 100vw">
+      <div class="relative flex items-center w-full h-full announcement-bar-text">
+        <div class="flex min-w-full text-center track type flex-nowrap">
+          <div class="text-center track-part bg-pink pattern-pink">{{ settings.promo_bar_content }}</div>
+          <div class="pattern pattern-pink-splat"></div>
+          <div class="text-center track-part bg-orange pattern-orange">
+            {{ settings.promo_bar_content }}
+          </div>
+          <div class="pattern pattern-pink-splat"></div>
+          <div class="text-center track-part bg-pink pattern-pink">{{ settings.promo_bar_content }}</div>
+          <div class="pattern pattern-pink-splat"></div>
+          <div class="text-center track-part bg-orange pattern-orange">
+            {{ settings.promo_bar_content }}
+          </div>
+          <div class="pattern pattern-pink-splat"></div>
+        </div>
+        <div class="flex min-w-full text-center track type flex-nowrap">
+          <div class="text-center track-part bg-pink pattern-pink">{{ settings.promo_bar_content }}</div>
+          <div class="pattern pattern-pink-splat"></div>
+          <div class="text-center track-part bg-orange pattern-orange">
+            {{ settings.promo_bar_content }}
+          </div>
+          <div class="pattern pattern-pink-splat"></div>
+          <div class="text-center track-part bg-pink pattern-pink">{{ settings.promo_bar_content }}</div>
+          <div class="pattern pattern-pink-splat"></div>
+          <div class="text-center track-part bg-orange pattern-orange">
+            {{ settings.promo_bar_content }}
+          </div>
+          <div class="pattern pattern-pink-splat"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% style %}
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .announcement-bar {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    --container-width: 100vw;
+  }
+  .announcement-bar .track {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 30s linear infinite;
+    width: var(--container-width);
+    & + .track {
+      left: var(--container-width);
+    }
+  }
+
+  .track-part {
+    padding: 0 50px;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .announcement-bar .pattern-pink-splat {
+    background-image: url({{'pink-splat.png'|asset_url}});
+  }
+{% endstyle %}

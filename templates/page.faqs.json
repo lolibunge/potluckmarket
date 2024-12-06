@@ -1,0 +1,131 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "faqs_DtNQnd": {
+      "type": "faqs",
+      "blocks": {
+        "faq_f8bnCB": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I need to refrigerate?",
+            "answer": "<p>Both our gochujang and ssamjang require refrigeration after opening. To extend shelf life, we also recommend storing your unopened gochujang and ssamjang in a cool, dry place.<\/p>"
+          }
+        },
+        "faq_dtFW3c": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the shelf life?",
+            "answer": "<p>Products will include a best by date on the bottom of the jars. Because our products are fermented, they will typically be good to use for 1-2 years after opening.<\/p>"
+          }
+        },
+        "faq_WAniP6": {
+          "type": "faq",
+          "settings": {
+            "question": "Are your products gluten-free, vegan, or organic?",
+            "answer": "<p>Our products are vegan and made from natural ingredients, which are grown in Korea without preservatives. Organic certification is an expensive undertaking that we have not undergone as a small business, and the small amount of malt that allows us to not add additional sugar does contain traces of gluten.<\/p>"
+          }
+        },
+        "faq_hPjH4i": {
+          "type": "faq",
+          "settings": {
+            "question": "Is your packaging recyclable?",
+            "answer": "<p>We do our best to keep sustainability in mind. The boxes around our jars, aluminum lids, and shipping materials are all recyclable.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_f8bnCB",
+        "faq_dtFW3c",
+        "faq_WAniP6",
+        "faq_hPjH4i"
+      ],
+      "settings": {
+        "section_background": "gray",
+        "big_title": "FAQS",
+        "label": "PRODUCTS"
+      }
+    },
+    "faqs_bUe3ed": {
+      "type": "faqs",
+      "blocks": {
+        "faq_xw84TC": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>Because of the nature of our products, we do not offer returns. If anything feels off about your order, don’t hesitate to contact us at <a href=\"mailto:hello@potluckmarket.com\" target=\"_blank\" title=\"mailto:hello@potluckmarket.com\">hello@potluckmarket.com<\/a>.<\/p>"
+          }
+        },
+        "faq_UntG93": {
+          "type": "faq",
+          "settings": {
+            "question": "",
+            "answer": ""
+          }
+        },
+        "faq_JXexCV": {
+          "type": "faq",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>We currently ship within the United States.<\/p>"
+          }
+        },
+        "faq_NUJEAk": {
+          "type": "faq",
+          "settings": {
+            "question": "My order is delayed, missing or damaged. What do I do?",
+            "answer": "<p>Oh no, sorry to hear that! Please contact us at <a href=\"mailto:hello@potluckmarket.com\" title=\"mailto:hello@potluckmarket.com\">hello@potluckmarket.com<\/a>.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_xw84TC",
+        "faq_UntG93",
+        "faq_JXexCV",
+        "faq_NUJEAk"
+      ],
+      "settings": {
+        "section_background": "green",
+        "big_title": "",
+        "label": "Shipping & Returns"
+      }
+    },
+    "faqs_qrpNjA": {
+      "type": "faqs",
+      "blocks": {
+        "faq_VgRCHw": {
+          "type": "faq",
+          "settings": {
+            "question": "Where can I find Potluck?",
+            "answer": "<p>You can purchase directly from our website or from a growing number of independent retailers across the country. Find us <a href=\"\/pages\/store-locator\" title=\"Store Locator\">here<\/a>! <br\/><br\/>If there's a shop you think would be a good fit, <a href=\"mailto:hello@potluckmarket.com\" title=\"mailto:hello@potluckmarket.com\">let us know<\/a> 💌<\/p>"
+          }
+        },
+        "faq_UMLtWn": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I stock Potluck in my store or restaurant?",
+            "answer": "<p>Of course! We love working with independent retailers and local restaurants. Send us a note at <a href=\"mailto:hello@potluckmarket.com\" title=\"mailto:hello@potluckmarket.com\">hello@potluckmarket.com<\/a>. We also take orders on <a href=\"https:\/\/faire.com\/direct\/potluck\" target=\"_blank\" title=\"https:\/\/faire.com\/direct\/potluck\">Faire<\/a>.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_VgRCHw",
+        "faq_UMLtWn"
+      ],
+      "settings": {
+        "section_background": "pink",
+        "big_title": "",
+        "label": "Stockists"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faqs_DtNQnd",
+    "faqs_bUe3ed",
+    "faqs_qrpNjA"
+  ]
+}
