@@ -1,0 +1,33 @@
+<!-- Mobile Menu Toggle -->
+<input type="checkbox" id="mobile-menu-toggle" class="hidden">
+<label for="mobile-menu-toggle" class="icon-open md:hidden p-2 text-black cursor-pointer">
+    <span class="icon">
+        {% render 'icon-hamburger' %}
+    </span>
+</label>
+<label for="mobile-menu-toggle" class="icon-close hidden md:hidden p-2 text-black cursor-pointer">
+    <span class="icon">
+    {% render 'icon-close' %}
+    </span>
+</label>
+
+<!-- Mobile Drawer Menu -->
+<div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 md:hidden">
+  <div class="drawer fixed w-3/4 bg-yellow shadow-lg p-4">
+    <ul class="space-y-4">
+      {% for link in linklists['new-menu'].links %}
+        <li class="uppercase type type-black">
+          <a
+            href="{{ link.url }}"
+            {% if link.active %}
+              class="active"
+            {% endif %}
+            class="block hover:underline"
+          >
+            {{ link.title | escape }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

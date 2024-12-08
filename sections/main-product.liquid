@@ -67,12 +67,12 @@
             {% endfor %}
           </div>
           {% if product.images.size > 1 %}
-            <div class="flex mx-auto md:hidden swiper-pagination type--eyebrow md:ml-auto md:mr-6"></div>
+            <div class="flex mx-auto swiper-pagination type--eyebrow md:ml-auto md:mr-6"></div>
 
-            <button class="mx-auto pointer-events-auto swiper-button-prev text-[40px] absolute top-1/2 -translate-y-1/2 left-4 z-10 hidden md:block">
+            <button class="mx-auto  md:hidden pointer-events-auto swiper-button-prev text-[40px] absolute top-1/2 -translate-y-1/2 left-4 z-10 hidden md:block">
               ←
             </button>
-            <button class="mx-auto pointer-events-auto swiper-button-next text-[40px] absolute top-1/2 -translate-y-1/2 right-4 z-10 hidden md:block">
+            <button class="mx-auto  md:hidden pointer-events-auto swiper-button-next text-[40px] absolute top-1/2 -translate-y-1/2 right-4 z-10 hidden md:block">
               →
             </button>
           {% endif %}
@@ -85,64 +85,32 @@
     </div>
     <div class="col-span-2 md:col-span-1 info" id="product-info-{{ section.id }}">
       <div class="sticky top-[var(--header-height)] py-[40px]">
-        <div class="mb-8 type px-[20px] md:px-[100px] xl:max-w-[1000px] mx-auto">SHOP</div>
-        <div class="flex flex-row md:items-center gap-4 mb-8 uppercase pl-[20px] md:pl-[100px] md:overflow-auto xl:max-w-[1000px] mx-auto">
-          {% for link in linklists['footer-products-menu'].links %}
-            {% if link.active %}
-              <h1 class="type--h1-alt">
-                <span class="border-b">{{ product.title }}</span>
-              </h1>
-            {% else %}
-              <a class="type--h1-alt opacity-20 hover:opacity-100" href="{{ link.url }}">
-                {{ link.title | escape }}
-              </a>
-            {% endif %}
-          {% endfor %}
-        </div>
-        <div class="flex flex-row md:items-center gap-4 mb-8 uppercase pl-[20px] md:pl-[100px] md:overflow-auto xl:max-w-[1000px] mx-auto">
-          {% render 'okendo-reviews-product-rating-summary', product: product %}
-        </div>
+        <div class="mb-[35px] type px-[20px] md:px-[100px] xl:max-w-[1000px] mx-auto">SHOP</div>
+        <div class="mb-[35px] type px-[20px] md:px-[100px] xl:max-w-[1000px] mx-auto product-title">{{product.title}}</div>
         <div class="px-[20px] md:px-[100px] xl:max-w-[1000px] mx-auto">
+          <div class="flex items-center justify-between">
+            <div class="quantity-row" data-quantity>
+              Quantity: 
+            </div>
+            <div class="flex items-center py-2 text-15px gap-1" data-prodify-price-container>
+              <span class="sr-only">Regular Price</span>
+              <span>
+                {{ product.selected_or_first_available_variant.price | money }}
+              </span>
+              {% if product.selected_or_first_available_variant.compare_at_price %}
+                <span class="line-through">
+                  {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+
           {% render 'product-variant-picker',
             product: product,
             product_form_id: 'product-form-id',
             picker_type: section.settings.picker_type
           %}
 
-
-          <div class="flex items-center justify-between mb-8">
-            <div class="quantity-row">
-              <label for="quantity-control-input" class="sr-only">Quantity</label>
-              <div class="rounded-full quantity-control-container bg-yellow">
-                <button type="button" data-prodify-quantity-decrement>
-                  {% render 'icon-minus' %}
-                </button>
-                <input
-                  class="bg-transparent"
-                  tabindex="-1"
-                  type="number"
-                  id="quantity-control-input"
-                  value="1"
-                  disabled=""
-                  data-prodify-quantity-presentation
-                >
-                <button type="button" data-prodify-quantity-increment>
-                  {% render 'icon-plus' %}
-                </button>
-              </div>
-            </div>
-            <div class="flex items-center py-2" data-prodify-price-container>
-              <span class="sr-only">Regular Price</span>
-              {% if product.selected_or_first_available_variant.compare_at_price %}
-                <span class="line-through">
-                  {{ product.selected_or_first_available_variant.compare_at_price | money }}
-                </span>
-              {% endif %}
-              <span>
-                {{ product.selected_or_first_available_variant.price | money }}
-              </span>
-            </div>
-          </div>
           <div class="description rte">
             {{ product.description }}
           </div>
@@ -222,9 +190,71 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const quantityRow = document.querySelector('[data-quantity]');
+
+  // Function to update the quantity based on the selected variant
+  function updateQuantity(initial = false) {
+    const variantRadios = document.querySelectorAll('[data-prodify-variant-radio]');
+    const variantSelect = document.querySelector('[data-prodify-variant-select]');
+    let selectedValue = null;
+
+    // Check for the initially selected radio button
+    if (variantRadios.length) {
+      const selectedRadio = document.querySelector('[data-prodify-variant-radio]:checked');
+      if (selectedRadio) {
+        selectedValue = selectedRadio.value;
+      }
+    }
+
+    // Check for the initially selected dropdown value
+    if (variantSelect) {
+      selectedValue = variantSelect.value;
+    }
+
+    // Update the quantity row if a value is found
+    if (selectedValue) {
+      quantityRow.textContent = `Quantity: ${selectedValue}`;
+      if (initial) {
+        console.log(`Initialized with Quantity: ${selectedValue}`);
+      }
+    }
+  }
+
+  // Run the function once on page load to initialize
+  updateQuantity(true);
+
+  // Add event listeners for changes
+  const variantRadios = document.querySelectorAll('[data-prodify-variant-radio]');
+  if (variantRadios.length) {
+    variantRadios.forEach((radio) => {
+      radio.addEventListener('change', function () {
+        updateQuantity();
+      });
+    });
+  }
+
+  const variantSelect = document.querySelector('[data-prodify-variant-select]');
+  if (variantSelect) {
+    variantSelect.addEventListener('change', function () {
+      updateQuantity();
+    });
+  }
+});
+
+</script>
+
 <style>
   input[type='radio'].disabled + label {
     text-decoration: line-through;
+  }
+
+  .section-main-product .product-title {
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: 700;
   }
 
   .section-main-product .shopify-section-main-product-inner .media {
@@ -271,8 +301,14 @@
   .section-main-product .shopify-section-main-product-inner .info fieldset {
     margin-bottom: 20px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    /* flex-wrap: wrap; */
+    gap: 8px;
+  }
+
+  .section-main-product .shopify-section-main-product-inner .info fieldset span.additional_variant_text {
+    font-size: 10px;
+    text-transform: uppercase;
+    text-align: center;
   }
 
   .section-main-product .shopify-section-main-product-inner .info fieldset legend {
@@ -284,12 +320,21 @@
   }
 
   .section-main-product .shopify-section-main-product-inner .info fieldset label {
-    display: inline-block;
+    /* display: inline-block; */
     padding: 10px 20px;
     border-radius: 40px;
     letter-spacing: 1px;
-    font-size: 14px;
+    font-size: 22px;
+    font-weight: bold ;
     cursor: pointer;
+    width: 125px;
+    height: 86px;
+    border: 1px solid #EDEDED;
+  }
+
+  .section-main-product .shopify-section-main-product-inner .info fieldset input:checked+label {
+      background-color: #D8E303;
+      border: none;
   }
 
   body:not(.using-mouse) .section-main-product .shopify-section-main-product-inner .info fieldset input:focus + label {
@@ -301,6 +346,15 @@
     background-color: transparent;
     color: lightgray;
   }
+
+  .line-through {
+    color: #D57D00;
+  }
+
+  .quantity-row {
+    text-transform: uppercase;
+    font-size: 15px;
+}
 
   .section-main-product .shopify-section-main-product-inner .info .quantity-row label {
     display: block;
@@ -362,4 +416,42 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
+  .gap-1{
+    gap: 5px;
+  }
+
+  .mb-\[35px\] {
+    margin-bottom: 35px;
+  }
+
+  .text-15px {
+    font-size: 15px;
+  }
+
+  .description li {
+  list-style: none; /* Remove default marker */
+  position: relative; /* Allow positioning of the marker */
+  padding-left: 25px; /* Add space for the custom marker */
+}
+
+.description li::before {
+  content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("https://cdn.shopify.com/s/files/1/0793/1664/8249/files/bullet.png?v=1733621837");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+  .section-main-product .shopify-section-main-product-inner .info fieldset {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 </style>

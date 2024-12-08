@@ -11,12 +11,9 @@
 
 {%- unless product.has_only_default_variant -%}
   {% if picker_type == 'radio' %}
-    <div class="variant-radios">
+    <div class="variant-radios mb-[35px]">
       {% for option in product.options_with_values %}
         <fieldset data-prodify-option-container>
-          <legend>
-            {{ option.name }}
-          </legend>
           {% render 'product-variant-options', product: product, option: option, picker_type: picker_type %}
         </fieldset>
       {% endfor %}
