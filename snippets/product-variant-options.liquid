@@ -22,6 +22,7 @@
   assign product_form_id = 'product-form-' | append: section.id
 -%}
 
+
 {% comment %} <script>
   console.log({{ product.variants | json }})
 </script> {% endcomment %}
@@ -30,6 +31,7 @@
   {%- liquid
     assign option_not_exist = true
     assign option_unavailable = true
+    assign matching_variant = product.variants | where: "option1", value | first
 
     for option1_name in variants_option1_arr
       case option.position
@@ -75,15 +77,18 @@
       {% if option_disabled %}
         class="disabled hidden [&:checked+label]:bg-indigo-900 [&:checked+label]:text-white"
       {% else %}
-        class="hidden [&:checked+label]:bg-indigo-900 [&:checked+label]:text-white"
+        class="hidden"
       {% endif %}
     >
     <label 
       for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" 
       @keyup.enter="$el.click()"
-      class="bg-slate-100 text-black"
+      class="text-black flex flex-col gap-1 items-center justify-center"
       >
-      {{ value -}}
+      <span class="option-name">{{ value -}}</span>
+      {% if matching_variant and matching_variant.metafields.custom.additional_variant_text != blank %}
+          <span class="additional_variant_text">{{ matching_variant.metafields.custom.additional_variant_text }}</span>
+        {% endif %}
       <span class="visually-hidden sr-only">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
     </label>
   {%- else -%}

@@ -1,5 +1,5 @@
 <ul class="header-menu">
-  {% for link in linklists['main-menu'].links %}
+  {% for link in linklists['new-menu'].links %}
     <li class="uppercase type type-black">
       <a
         href="{{ link.url }}"
@@ -39,6 +39,9 @@
     .header-menu a,
     .header-menu button {
       margin-right: 20px;
+    }
+    .header-menu {
+      display: none;
     }
   }
 </style>

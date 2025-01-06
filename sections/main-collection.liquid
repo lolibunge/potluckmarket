@@ -2,28 +2,35 @@
 {
   "name": "Main Collection Section",
   "class": "section-main-collection",
-  "tag": "section"
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Add a block image"
+    }
+  ]
 }
 {% endschema %}
 
 <section class="product-grid">
-  <div class="grid grid-cols-2">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
     {%- paginate collection.products by 12 -%}
+      {% assign product_counter = 0 %}
       {% for product in collection.products %}
-        <div class="col-span-2 lg:col-span-1">
+        {% assign product_counter = product_counter | plus: 1 %}
+        <div class="col-span-1">
           {%- render 'product-grid-illo', product: product %}
         </div>
-        {% if collection.products.size == 3 and forloop.last %}
-          <div class="hidden col-span-2 lg:col-span-1 lg:block">
+
+        {% if product_counter == 3 and section.settings.block_image %}
+          <div class="col-span-1">
             <div class="relative h-full overflow-hidden">
-              <div class="absolute top-0 left-0 h-full">
-                <div class="h-full media">
-                  <img
-                    src="{{ "illo.jpg" | asset_url }}"
-                    alt="Illustration"
-                  >
-                </div>
-              </div>
+              <img
+                src="{{ section.settings.block_image | image_url }}"
+                alt="Additional Block Image"
+                class="h-full w-full object-cover"
+              >
             </div>
           </div>
         {% endif %}
@@ -31,5 +38,4 @@
       {% render 'pagination-navigation', paginate: paginate %}
     {% endpaginate %}
   </div>
-  <style></style>
 </section>

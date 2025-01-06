@@ -14,6 +14,7 @@
 <header class="py-2 bg-yellow pattern-yellow">
   <div class="relative flex items-center text-black site-container-fluid">
     {% render 'header-menu' %}
+    {% render 'header-drawer' %}
 
     <div class="flex items-center self-center ml-auto space-x-3">
       <button
@@ -60,9 +61,84 @@
         transform: translate(-50%, -50%);
       }
 
-      #mobile-nav-trigger {
-        display: block;
+      .icon {
+        height: 20px;
+        width: 20px;
       }
+
+      /* Hide checkbox by default */
+        #mobile-menu-toggle {
+          display: none;
+        }
+
+        /* Hamburger icon visible when menu is closed */
+        #mobile-menu-toggle:not(:checked) ~ label.icon-open {
+          display: flex;
+        }
+
+        /* Close icon visible when menu is open */
+        #mobile-menu-toggle:checked ~ label.icon-close {
+          display: flex;
+        }
+
+        /* Hide icons based on state */
+        #mobile-menu-toggle:not(:checked) ~ label.icon-close,
+        #mobile-menu-toggle:checked ~ label.icon-open {
+          display: none;
+        }
+
+        /* Show menu when checkbox is checked */
+        #mobile-menu-toggle:checked ~ #mobile-menu {
+          display: block;
+          visibility: visible;
+          opacity: 1;
+          transition: top .3s ease-in-out, opacity 0.3s ease-in-out;
+          top: 92px;
+        }
+        
+        
+        /* Drawer menu styling */
+        #mobile-menu {
+          z-index: 30;
+          visibility: hidden;
+          top: 92px;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+        }
+        
+        .scrolled #mobile-menu,
+        .scrolled #mobile-menu-toggle:checked ~ #mobile-menu {
+          top: 52px;
+          transition: top .3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        
+        
+        #mobile-menu > div {
+          width: 75%; /* 3/4 of the screen */
+          height: 100%;
+          padding: 20px;
+          left: -120px;
+          transition: left .5s ease-in-out;
+        }
+        /* Drawer animation */
+        .drawer {
+          left: -100%;
+          transition: left 0.3s ease-in-out;
+        }
+
+        #mobile-menu-toggle:checked ~ #mobile-menu .drawer {
+          left: 0;
+        }
+
+        #mobile-menu ul {
+          list-style: none;
+          padding: 0;
+        }
+
+        #mobile-menu ul li {
+          margin-bottom: 1rem;
+        }
+      
     }
 
     .cart-icon-wrapper {

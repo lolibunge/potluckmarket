@@ -2,7 +2,9 @@
   "sections": {
     "main": {
       "type": "main-collection",
-      "settings": {}
+      "settings": {
+        "block_image": "shopify://shop_images/Product_Link_-ENGAGE.png"
+      }
     }
   },
   "order": [
